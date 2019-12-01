@@ -66,3 +66,37 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+---Stateless
+sin estado
+--Statement
+con estado
+##Redux
+Nos permite almacenar el estado de una 
+aplicacion en un solo lugar
+
+-un solo estado
+-imutables
+-centralizado
+
+cada compoennte puede o no tener estado, para comunicarse el estado debe pasar de padresa a hijos y viceversa
+para esto reduz crea un solo estado y cualquier componente puede acceder a el cuando usarlo:
+grandes aplicaciones
+el flujo de info es usada por muchos componentes
+quieres compartir indormcion
+ejemplo un login
+Redux es para manejar informacion, no estilos, formato de textosi se necesita qeu algo brille , eso es para un estado local
+
+pilares
+##store
+ almacenamiento
+##reducers
+Estado
+##actionsCreators
+funciones  piden informacion
+##component
+codigo jsx
+
+
+comunicación:
+component => actionCreator => reducer => unique state

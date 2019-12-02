@@ -1,16 +1,18 @@
 import React from 'react';
 import { BrowserRouter, Route} from 'react-router-dom';
-import Users from './Users';
+import Users from './Users/index';
 import  Menu from './Menu';
 import  Tasks from './Tasks';
+import Publications from './Publications';
 
-const  App = ()=> (
+const  App = (props)=> (
 <BrowserRouter>
 <Menu/>
-<div className="margin">
+
 <Route exact path="/" component={ Users }/>
 <Route exact path="/tasks" component={ Tasks }/>
-</div>
+<Route exact path="/publications/:key" component={ Publications }/>
+
 </BrowserRouter>
 )
 

@@ -100,3 +100,12 @@ codigo jsx
 
 comunicación:
 component => actionCreator => reducer => unique state
+
+
+resources: 
+ https://jsonplaceholder.typicode.com/
+ https://loading.io/css/
+ https://cssicon.space/#/icon/eye-solid
+
+
+ https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment

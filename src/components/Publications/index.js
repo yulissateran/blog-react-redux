@@ -4,7 +4,7 @@ import Spinner from "../Shared/Spinner";
 import Error from "../Shared/Error";
 import * as usersActions from "../../actions/users.actions";
 import * as publicationsActions from "../../actions/publications.actions";
-const { getPublicationsOfUser } = publicationsActions;
+const { getPublicationsOfUser, openComments } = publicationsActions;
 
 class Publications extends Component {
   key = this.props.match.params.key;
@@ -77,16 +77,20 @@ class Publications extends Component {
     if (publicationsReducer.loading) return <Spinner />;
 
     const { publicationsId } = users[key];
-    return publications[publicationsId].map(publication => (
+    return this.showInfo(publications[publicationsId], publicationsId);
+  };
+  showInfo = (publications, publicationsId) =>(
+    publications.map(publication => (
       <div className="publication" key={publication.id}
-      onClick={()=>getComments(publication.id)}
+      onClick={()=>this.props.openComments()}
       >
         <h2 className="publication__title">{publication.title}</h2>
         <p className="publication__body">{publication.body}</p>
       </div>
-    ));
-  };
+    )))
 }
+
+
 const getComments =(id)=>{alert('hola' + id)}
 const mapStateToProps = ({ usersReducer, publicationsReducer }) => ({
   usersReducer,
@@ -94,6 +98,7 @@ const mapStateToProps = ({ usersReducer, publicationsReducer }) => ({
 });
 const mapDispatchToProps = {
   ...usersActions,
-  getPublicationsOfUser
+  getPublicationsOfUser,
+  openComments
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Publications);

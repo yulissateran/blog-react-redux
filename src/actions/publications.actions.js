@@ -12,9 +12,15 @@ export const getPublicationsOfUser = key => async (dispatch, getState) => {
   const userId = users[key].id;
   dispatch({ type: LOADING });
   try {
-    const { data: currentUserPublications } = await axios.get(
+    let  { data: currentUserPublications } = await axios.get(
       `https://jsonplaceholder.typicode.com/posts?userId=${userId}`
     );
+    currentUserPublications = currentUserPublications.map((publication)=>({
+      ...publication,
+      comments: [],
+      open: false
+    }))
+  
     const currentPublications = [...publications, currentUserPublications];
     dispatch({
       type: GET_PUBLICATIONS_OF_USER,
@@ -36,3 +42,7 @@ export const getPublicationsOfUser = key => async (dispatch, getState) => {
     });
   }
 };
+
+export const openComments  = ()=>(dispatch)=>{
+  alert('hola' )};
+  // dispatch()
